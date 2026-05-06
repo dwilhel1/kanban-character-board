@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { DndContext, type DragEndEvent, type DragOverEvent, type DragStartEvent, closestCorners, DragOverlay } from '@dnd-kit/core';
 import { arrayMove } from '@dnd-kit/sortable';
 import confetti from 'canvas-confetti';
@@ -18,6 +18,7 @@ export default function App() {
   const [characters, setCharacters] = useState<Character[]>([]);
   const [items, setItems] = useState<KanbanItem[]>([]);
   const [activeItem, setActiveItem] = useState<KanbanItem | null>(null);
+  const confettiFiredIds = useRef(new Set<string>());
 
   useEffect(() => {
     fetchCharacters().then(setCharacters);
@@ -56,7 +57,9 @@ export default function App() {
     setActiveItem(null);
     if (!over) return;
     const targetColumn = getTargetColumn(String(active.id), String(over.id));
-    if (targetColumn === 'done') {
+    const cardId = String(active.id);
+    if (targetColumn === 'done' && !confettiFiredIds.current.has(cardId)) {
+      confettiFiredIds.current.add(cardId);
       confetti({ particleCount: 120, spread: 70, origin: { y: 0.6 } });
     }
     setItems(prev => {
