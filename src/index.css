@@ -29,6 +29,7 @@ body {
   gap: 0.75rem;
   margin-bottom: 2rem;
   flex-wrap: wrap;
+  align-items: flex-start;
 }
 
 .form-input,
@@ -39,8 +40,25 @@ body {
   background: #1a1a2e;
   color: #e8e8e8;
   font-size: 0.95rem;
+  width: 100%;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
   flex: 1;
   min-width: 180px;
+}
+
+.input-error {
+  border-color: #ff5c5c !important;
+}
+
+.error-message {
+  font-size: 0.75rem;
+  color: #ff5c5c;
+  display: block;
 }
 
 .form-button {
