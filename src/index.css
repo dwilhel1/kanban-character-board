@@ -63,6 +63,7 @@ body {
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   align-items: start;
+  user-select: none;
 }
 
 .column {
@@ -88,6 +89,17 @@ body {
   min-height: 200px;
 }
 
+@keyframes card-appear {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .kanban-card {
   background: #252540;
   border-radius: 10px;
@@ -98,6 +110,7 @@ body {
   cursor: grab;
   border: 1px solid #2e2e3a;
   transition: box-shadow 0.2s;
+  animation: card-appear 0.15s ease-out;
 }
 
 .kanban-card:hover {
