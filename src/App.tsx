@@ -44,8 +44,8 @@ export default function App() {
     const { active, over } = event;
     if (!over) return;
     const targetColumn = getTargetColumn(String(active.id), String(over.id));
-    const activeItem = items.find(i => i.id === active.id);
-    if (activeItem && activeItem.column !== targetColumn) {
+    const draggingItem = items.find(i => i.id === active.id);
+    if (draggingItem && draggingItem.column !== targetColumn) {
       setItems(prev =>
           prev.map(i => i.id === active.id ? { ...i, column: targetColumn } : i)
       );
