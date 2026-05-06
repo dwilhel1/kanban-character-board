@@ -72,7 +72,7 @@ export default function App() {
 
   return (
       <div className="app">
-        <h1 className="app-title">Kanban Board</h1>
+        <h1 className="app-title">Kanban Character Board</h1>
         <AddItemForm characters={characters} onAdd={handleAddItem} />
         <DndContext
             collisionDetection={closestCorners}
