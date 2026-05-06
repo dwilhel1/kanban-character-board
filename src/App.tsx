@@ -64,7 +64,7 @@ export default function App() {
     }
     setItems(prev => {
       const oldIndex = prev.findIndex(i => i.id === active.id);
-      const overItem = items.find(i => i.id === over.id);
+      const overItem = prev.find(i => i.id === over.id);
       const newIndex = overItem ? prev.findIndex(i => i.id === over.id) : prev.length;
       return arrayMove(prev, oldIndex, newIndex);
     });
