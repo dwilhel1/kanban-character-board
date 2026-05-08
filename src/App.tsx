@@ -6,7 +6,7 @@ import type { Character, KanbanItem, Column } from './types';
 import { fetchCharacters } from './api';
 import AddItemForm from './components/AddItemForm';
 import ColumnComponent from './components/Column';
-import KanbanCard from "./components/KanbanCard.tsx";
+import KanbanCard from './components/KanbanCard.tsx';
 
 const COLUMNS: { id: Column; title: string }[] = [
   { id: 'todo', title: 'To Do' },
